@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users #ユーザ認証に必要なもの（覚えるしかない
 
   resources :post_images, only: [:new, :index, :show, :create, :destroy] do
+    resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end
   resources :users, only: [:show, :edit, :update]
